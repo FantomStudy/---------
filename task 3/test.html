@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+            height: 100vh;
+            margin: 0;
+        }
+        .cube-container{
+            position: relative;
+            animation: rotate 20s infinite linear;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+        }
+        .face{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-gap: 2px;
+        }
+        .cell{
+            border: 1px solid black;
+        }
+        .front{
+            transform: translateZ(100px);
+        }
+        .back{
+            transform: rotateY(180deg) translateZ(100px) ;
+        }
+        .top{
+            transform:  rotateX(90deg) translateZ(100px);
+        }
+        .bottom{
+            transform:  rotateX(-90deg) translateZ(100px);
+        }
+        .right{
+            transform: rotateY(90deg)  translateZ(100px);
+        }
+        .left{
+            transform:  rotateY(-90deg) translateZ(100px);
+        }
+        @keyframes rotate {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cube-container">
+        <div class="face front">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="face back">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="face left">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div></div>
+        <div class="face right"><div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="face top">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="face bottom"><div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div></div>
+    </div>
+</body>
+</html>

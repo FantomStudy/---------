@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS Toggle Switch</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 60px; /* Ширина тумблера */
+            height: 30px; /* Высота тумблера */
+            background-color: #ccc; /* Серый фон в выключенном состоянии */
+            border-radius: 15px; /* Закругленные края */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Плавное изменение цвета фона */
+        }
+
+        .toggle-switch.active {
+            background-color: blue; /* Голубой фон в включенном состоянии, как в iOS */
+        }
+
+        .toggle-knob {
+            position: absolute;
+            width: 26px; /* Ширина ползунка */
+            height: 26px; /* Высота ползунка */
+            background-color: #007AFF; /* Темно-синий ползунок в выключенном состоянии */
+            border-radius: 50%; /* Круглый ползунок */
+            top: 2px;
+            left: 2px; /* Начальная позиция (слева) */
+            transition: transform 0.3s, background-color 0.3s; /* Плавное перемещение и изменение цвета */
+        }
+
+        .toggle-switch.active .toggle-knob {
+            transform: translateX(30px); /* Смещение вправо на ширину тумблера минус ширина ползунка */
+            background-color: #fff; /* Белый ползунок в включенном состоянии */
+        }
+    </style>
+</head>
+<body>
+<div class="toggle-switch" onclick="toggleSwitch(this)">
+    <div class="toggle-knob"></div>
+</div>
+
+<script>
+    function toggleSwitch(element) {
+        element.classList.toggle('active'); // Переключаем состояние тумблера
+    }
+</script>
+</body>
+</html>

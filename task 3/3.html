@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вращающийся 3D-куб</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            perspective: 1000px; /* Перспектива для 3D-эффекта */
+        }
+
+        .cube-container {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 20s infinite linear; /* Медленное вращение */
+        }
+
+        .face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3x3 сетка */
+            grid-template-rows: repeat(3, 1fr);
+            grid-gap: 2px; /* Маленький зазор между частями */
+        }
+
+        .cell {
+            background-color: rgba(0, 128, 255, 0.7); /* Полупрозрачный синий */
+            border: 1px solid #000;
+        }
+
+        /* Позиционирование граней куба */
+        .front  { transform: translateZ(100px); } /* Передняя грань */
+        .back   { transform: rotateY(180deg) translateZ(100px); } /* Задняя */
+        .left   { transform: rotateY(-90deg) translateZ(100px); } /* Левая */
+        .right  { transform: rotateY(90deg) translateZ(100px); } /* Правая */
+        .top    { transform: rotateX(90deg) translateZ(100px); } /* Верхняя */
+        .bottom { transform: rotateX(-90deg) translateZ(100px); } /* Нижняя */
+
+        /* Анимация вращения */
+        @keyframes rotate {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="cube-container">
+    <!-- Передняя грань -->
+    <div class="face front">
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+    <!-- Задняя грань -->
+    <div class="face back">
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+    <!-- Левая грань -->
+    <div class="face left">
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+    <!-- Правая грань -->
+    <div class="face right">
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+    <!-- Верхняя грань -->
+    <div class="face top">
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+    <!-- Нижняя грань -->
+    <div class="face bottom">
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+</div>
+</body>
+</html>

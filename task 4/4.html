@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бегущий персонаж</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .character {
+            width: 48px; /* Ширина одного кадра (из вашего спрайта) */
+            height: 48px; /* Высота одного кадра (из вашего спрайта) */
+            background-image: url("./Run.png") ; /* Замените на путь к вашему спрайту */
+            background-repeat: repeat-x;
+            background-size: cover;
+            animation: run 0.8s steps(11) infinite, move 4s linear infinite; /* 11 шагов — общее количество кадров */
+        }
+
+        @keyframes run {
+            0% { background-position: 0 0; } /* Начальная позиция (первый кадр) */
+            100% { background-position: -530px 0; } /* Конечная позиция (последний кадр, 11 кадров * 48px = 528px) */
+        }
+
+        @keyframes move {
+            0% { transform: translateX(0); } /* Начинаем слева за пределами экрана */
+            100% { transform: translateX(600px); } /* Движение вправо за пределы экрана */
+        }
+    </style>
+</head>
+<body>
+<div class="character"></div>
+</body>
+</html>
